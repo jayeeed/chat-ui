@@ -14,7 +14,7 @@ const ChatInput = ({ addMessage }) => {
     try {
       // Send message to API
       const response_raw = await axios.post(
-        `http://127.0.0.1:8000/handle-expense/`,
+        `https://intense-secondly-gecko.ngrok-free.app/handle-expense/`,
         {},
         {
           params: { user_input: message },
