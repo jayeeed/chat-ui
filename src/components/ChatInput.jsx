@@ -14,21 +14,22 @@ const ChatInput = ({ addMessage }) => {
     try {
       // Send message to API
       const response_raw = await axios.post(
-        `https://intense-secondly-gecko.ngrok-free.app/handle-expense/`,
-        {},
-        {
-          params: { user_input: message },
-          headers: { Accept: 'application/json' },
-        }
+      `https://intense-secondly-gecko.ngrok-free.app/handle-expense/`,
+      {},
+      {
+        params: { user_input: message },
+        headers: { Accept: 'application/json' },
+      }
       );
-      console.log('Response:', response_raw.data)
+      console.log('Response:', response_raw.data);
       
       const response = response_raw.data;
 
       // Add API response to chat
+      addMessage({ sender: 'api', text: `Intent: ${response.intent}, Response: ${response.response}` });
       addMessage({
-        sender: 'api',
-        text: `Intent: ${response.intent}*********************************** Date: ${response.date}, Amount: ${response.amount}, Category: ${response.category}, Description: ${response.description}`,
+      sender: 'api',
+      text: `Date: ${response.date}, Amount: ${response.amount}, Category: ${response.category}, Description: ${response.description}`,
       });
     } catch (error) {
       console.error('Error:', error);

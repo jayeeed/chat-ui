@@ -5,10 +5,12 @@ const ChatDisplay = ({ conversations }) => {
     <div className="chat-display">
       {conversations.map((msg, index) => {
         let bgColor = '';
-        if (msg.text.includes('search')) {
+        if (msg.text.includes('search_expense')) {
           bgColor = 'yellow';
-        } else if (msg.text.includes('save')) {
+        } else if (msg.text.includes('add_expense')) {
           bgColor = 'green';
+        } else if (msg.text.includes('unknown')) {
+          bgColor = 'red';
         }
 
         return (
