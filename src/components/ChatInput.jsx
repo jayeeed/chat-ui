@@ -42,12 +42,14 @@ const ChatInput = ({ addMessage }) => {
 
       const response = response_raw.data;
 
-      // Add API response to chat
-      addMessage({ sender: 'api', text: `Intent: ${response.intent}, Response: ${response.response}` });
-      addMessage({
-        sender: 'api',
-        text: `Date: ${response.date}, Amount: ${response.amount}, Category: ${response.category}, Description: ${response.description}`,
-      });
+      if (response.intent === 'add_expense') {
+        addMessage({ sender: 'api', text: `🤑 Expense Created Successfully` });
+      } else if (response.intent === 'search_expense') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'unknown') {
+          addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
+      }
+
     } catch (error) {
       console.error('Error:', error);
       addMessage({ sender: 'api', text: 'Error: Could not process your request.' });

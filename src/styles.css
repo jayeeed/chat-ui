@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 85vh;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 10px;
   border: 1px solid #ccc;
@@ -24,19 +24,21 @@
 .chat-message {
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 8px;
-  max-width: 70%;
+  border-radius: 18px;
+  max-width: fit-content;
 }
 
 .chat-message.user {
   align-self: flex-end;
   background-color: #d1e7ff;
   text-align: right;
+  border-radius: 18px 18px 0 18px;
 }
 
 .chat-message.api {
-  align-self: flex-start;
+  align-self: flex-end;
   background-color: #f0f0f0;
+  border-radius: 18px 18px 18px 0;
 }
 
 .chat-input {
