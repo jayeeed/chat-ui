@@ -4,10 +4,11 @@ import axios from 'axios';
 const ChatInput = ({ addMessage }) => {
   const [message, setMessage] = useState('');
   const [file, setFile] = useState(null);
+  const [url, setUrl] = useState('');
 
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!message.trim() && !file) return;
+    if (!message.trim() && !file && !url.trim()) return;
 
     // Check if the file is an image
     if (!message.trim() && file && !file.type.startsWith('image/')) {
@@ -20,10 +21,20 @@ const ChatInput = ({ addMessage }) => {
       addMessage({ sender: 'user', text: message });
     }
 
+    if (file) {
+      addMessage({ sender: 'user', text: 'Image uploaded!' });
+    }
+
+    if (url.trim()) {
+      addMessage({ sender: 'user', text: 'Invoice URL received!' });
+    }
+
     const formData = new FormData();
     formData.append('user_input', message);
     if (file) {
-      formData.append('file', file);
+      formData.append('image_file', file);
+    } else if (url.trim()) {
+      formData.append('image_url', url);
     }
 
     try {
@@ -47,7 +58,7 @@ const ChatInput = ({ addMessage }) => {
       } else if (response.intent === 'search_expense') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       } else if (response.intent === 'unknown') {
-          addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
+        addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       }
 
     } catch (error) {
@@ -57,6 +68,7 @@ const ChatInput = ({ addMessage }) => {
 
     setMessage('');
     setFile(null);
+    setUrl('');
   };
 
   const handlePaste = (e) => {
@@ -80,7 +92,15 @@ const ChatInput = ({ addMessage }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type a message..."
-        required={!file}
+        required={!file && !url.trim()}
+      />
+
+      <input
+        type="text"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        placeholder="Paste an image URL..."
+        required={!file && !message.trim()}
       />
 
       {/* Custom styled file input */}
