@@ -60,7 +60,6 @@ const ChatInput = ({ addMessage }) => {
       } else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       }
-
     } catch (error) {
       console.error('Error:', error);
       addMessage({ sender: 'api', text: 'Error: Could not process your request.' });
@@ -69,6 +68,18 @@ const ChatInput = ({ addMessage }) => {
     setMessage('');
     setFile(null);
     setUrl('');
+  };
+
+  // Handler for the new GET button
+  const handleGet = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/');
+      console.log('GET Response:', response.data);
+      addMessage({ sender: 'api', text: 'GET request successful!' });
+    } catch (error) {
+      console.error('GET Error:', error);
+      addMessage({ sender: 'api', text: 'Error: GET request failed.' });
+    }
   };
 
   const handlePaste = (e) => {
@@ -144,6 +155,24 @@ const ChatInput = ({ addMessage }) => {
       )}
 
       <button type="submit">Send</button>
+
+      {/* New small GET button */}
+      <button
+        type="button"
+        onClick={handleGet}
+        style={{
+          marginLeft: '8px',
+          padding: '8px 12px',
+          fontSize: '14px',
+          backgroundColor: '#FFF',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+      >
+        🏗️
+      </button>
     </form>
   );
 };
