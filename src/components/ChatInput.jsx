@@ -71,6 +71,10 @@ const ChatInput = ({ addMessage }) => {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       } else if (response.intent === 'check_budget') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'daterange_all_expenses') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'daterange_category_expenses') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       } else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       }
