@@ -76,7 +76,7 @@ const ChatInput = ({ addMessage }) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      addMessage({ sender: 'api', text: 'Error: Could not process your request.' });
+      addMessage({ sender: 'user', text: 'Error: Could not process your request.' });
     }
 
     setMessage('');
