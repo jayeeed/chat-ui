@@ -53,9 +53,23 @@ const ChatInput = ({ addMessage }) => {
 
       const response = response_raw.data;
 
-      if (response.intent === 'add_expense') {
+      if (response.intent === 'create_expense') {
         addMessage({ sender: 'api', text: `🤑 Expense Created Successfully` });
-      } else if (response.intent === 'search_expense') {
+      } else if (response.intent === 'search_by_fields') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'sum_expense') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'min_max_expense') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'monthly_expense_summary') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'average_expense') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'expense_anomalies') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'recurring_expenses') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'check_budget') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       } else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
