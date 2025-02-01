@@ -76,7 +76,7 @@ const ChatInput = ({ addMessage }) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      addMessage({ sender: 'user', text: 'Error: Could not process your request.' });
+      addMessage({ sender: 'api', text: 'Error: Could not process your request.' });
     }
 
     setMessage('');
@@ -89,10 +89,10 @@ const ChatInput = ({ addMessage }) => {
     try {
       const response = await axios.get('http://127.0.0.1:8000/');
       console.log('GET Response:', response.data);
-      addMessage({ sender: 'api', text: 'GET request successful!' });
+      addMessage({ sender: 'user', text: 'GET request successful!' });
     } catch (error) {
       console.error('GET Error:', error);
-      addMessage({ sender: 'api', text: 'Error: GET request failed.' });
+      addMessage({ sender: 'user', text: 'Error: GET request failed.' });
     }
   };
 
