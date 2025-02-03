@@ -56,25 +56,25 @@ const ChatInput = ({ addMessage }) => {
       if (response.intent === 'create_expense') {
         addMessage({ sender: 'api', text: `🤑 Expense Created Successfully` });
       } else if (response.intent === 'search_by_fields') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `General Search Result: 🚨 ${response.result}` });
       } else if (response.intent === 'sum_expense') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Summed category expense: 🚨 ${response.result}` });
       } else if (response.intent === 'min_max_expense') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Min/Max category expense: 🚨 ${response.result}` });
       } else if (response.intent === 'monthly_expense_summary') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Monthly expense summary: 🚨 ${response.result}` });
       } else if (response.intent === 'average_expense') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Average expense by category: 🚨 ${response.result}` });
       } else if (response.intent === 'expense_anomalies') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Abnormal expenses: 🚨 ${response.result}` });
       } else if (response.intent === 'recurring_expenses') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Recurring expenses: 🚨 ${response.result}` });
       } else if (response.intent === 'check_budget') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `Budget check result: 🚨 ${response.result}` });
       } else if (response.intent === 'daterange_all_expenses') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `All expenses in date range: 🚨 ${response.result}` });
       } else if (response.intent === 'daterange_category_expenses') {
-        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+        addMessage({ sender: 'api', text: `All expenses of category in date range: 🚨 ${response.result}` });
       } else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       }
