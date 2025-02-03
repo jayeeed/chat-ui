@@ -75,7 +75,20 @@ const ChatInput = ({ addMessage }) => {
         addMessage({ sender: 'api', text: `All expenses in date range: 🚨 ${response.result}` });
       } else if (response.intent === 'daterange_category_expenses') {
         addMessage({ sender: 'api', text: `All expenses of category in date range: 🚨 ${response.result}` });
-      } else if (response.intent === 'unknown') {
+      } else if (response.intent === 'highest_expense') {
+        addMessage({ sender: 'api', text: `Highest expense: 🚨 ${response.result}` });
+      } else if (response.intent === 'lowest_expense') {
+        addMessage({ sender: 'api', text: `Lowest expense: 🚨 ${response.result}` });
+      } else if (response.intent === 'category_percentage') {
+        addMessage({ sender: 'api', text: `Category percentage: 🚨 ${response.result}` });
+      } else if (response.intent === 'yearly_expense_summary') {
+        addMessage({ sender: 'api', text: `Yearly expense summary: 🚨 ${response.result}` });
+      } else if (response.intent === 'expense_trends') {
+        addMessage({ sender: 'api', text: `Monthly expense summary: 🚨 ${response.result}` });
+      } else if (response.intent === 'predict_future_expenses') {
+        addMessage({ sender: 'api', text: `Future expense prediction: 🚨 ${response.result}` });
+      }
+      else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       }
     } catch (error) {
