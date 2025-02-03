@@ -87,6 +87,8 @@ const ChatInput = ({ addMessage }) => {
         addMessage({ sender: 'api', text: `Monthly expense summary: 🚨 ${response.result}` });
       } else if (response.intent === 'predict_future_expenses') {
         addMessage({ sender: 'api', text: `Future expense prediction: 🚨 ${response.result}` });
+      } else if (response.intent === 'compare_periods_expenses') {
+        addMessage({ sender: 'api', text: `Expense comparison: 🚨 ${response.result}` });
       }
       else if (response.intent === 'unknown') {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
