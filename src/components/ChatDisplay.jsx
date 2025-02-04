@@ -6,11 +6,13 @@ const ChatDisplay = ({ conversations }) => {
       {conversations.map((msg, index) => {
         let bgColor = '';
         if (msg.text.includes('🚨')) {
-          bgColor = 'yellow';
+          bgColor = '#52ff69';
         } else if (msg.text.includes('🤑')) {
-          bgColor = 'green';
+          bgColor = '#ff8030';
         } else if (msg.text.includes('🤖')) {
-          bgColor = 'red';
+          bgColor = '#ff0000';
+        } else if (msg.text.includes('👋')) {
+          bgColor = '#7adb67';
         }
 
         return (
