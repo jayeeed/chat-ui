@@ -8,11 +8,11 @@ const ChatDisplay = ({ conversations }) => {
         if (msg.text.includes('🚨')) {
           bgColor = '#52ff69';
         } else if (msg.text.includes('🤑')) {
-          bgColor = '#ff8030';
+          bgColor = '#4dd6c6';
         } else if (msg.text.includes('🤖')) {
           bgColor = '#ff0000';
         } else if (msg.text.includes('👋')) {
-          bgColor = '#7adb67';
+          bgColor = '#5b6bb5';
         }
 
         return (
