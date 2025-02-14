@@ -63,6 +63,8 @@ const ChatInput = ({ addMessage }) => {
         addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       } else if (typeof response.intent === 'string') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
+      } else if (response.intent === 'multi') {
+        addMessage({ sender: 'api', text: `🚨 ${response.results}` });
       }
     } catch (error) {
       console.error('Error:', error);
