@@ -89,14 +89,16 @@ const ChatInput = ({ addMessage }) => {
         addMessage({ sender: 'api', text: `Future expense prediction: 🚨 ${response.result}` });
       } else if (response.intent === 'compare_periods_expenses') {
         addMessage({ sender: 'api', text: `Expense comparison: 🚨 ${response.result}` });
-      } else if (response.intent === 'greetings') {
-        addMessage({ sender: 'api', text: `👋 ${response.result}` });
-      } else if (response.intent === 'unknown') {
-        addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
       } else if (response.intent === 'wrong_receipt') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       } else if (response.intent === 'multi') {
         addMessage({ sender: 'api', text: `🚨 ${response.results}` });
+      } else if (response.intent === 'greetings') {
+        addMessage({ sender: 'api', text: `👋 ${response.result}` });
+      } else if (response.intent === 'unknown') {
+        addMessage({ sender: 'api', text: `🤖 I'm sorry, I don't understand. Please try again.` });
+      } else if (typeof response.intent === 'string') {
+        addMessage({ sender: 'api', text: `🚨 ${response.result}` });
       }
     } catch (error) {
       console.error('Error:', error);
