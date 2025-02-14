@@ -55,44 +55,8 @@ const ChatInput = ({ addMessage }) => {
 
       if (response.intent === 'create_expense') {
         addMessage({ sender: 'api', text: `🤑 Expense Created Successfully` });
-      } else if (response.intent === 'search_by_fields') {
-        addMessage({ sender: 'api', text: `General Search Result: 🚨 ${response.result}` });
-      } else if (response.intent === 'sum_expense') {
-        addMessage({ sender: 'api', text: `Summed category expense: 🚨 ${response.result}` });
-      } else if (response.intent === 'min_max_expense') {
-        addMessage({ sender: 'api', text: `Min/Max category expense: 🚨 ${response.result}` });
-      } else if (response.intent === 'monthly_expense_summary') {
-        addMessage({ sender: 'api', text: `Monthly expense summary: 🚨 ${response.result}` });
-      } else if (response.intent === 'average_expense') {
-        addMessage({ sender: 'api', text: `Average expense by category: 🚨 ${response.result}` });
-      } else if (response.intent === 'expense_anomalies') {
-        addMessage({ sender: 'api', text: `Abnormal expenses: 🚨 ${response.result}` });
-      } else if (response.intent === 'recurring_expenses') {
-        addMessage({ sender: 'api', text: `Recurring expenses: 🚨 ${response.result}` });
-      } else if (response.intent === 'check_budget') {
-        addMessage({ sender: 'api', text: `Budget check result: 🚨 ${response.result}` });
-      } else if (response.intent === 'daterange_all_expenses') {
-        addMessage({ sender: 'api', text: `All expenses in date range: 🚨 ${response.result}` });
-      } else if (response.intent === 'daterange_category_expenses') {
-        addMessage({ sender: 'api', text: `All expenses of category in date range: 🚨 ${response.result}` });
-      } else if (response.intent === 'highest_expense') {
-        addMessage({ sender: 'api', text: `Highest expense: 🚨 ${response.result}` });
-      } else if (response.intent === 'lowest_expense') {
-        addMessage({ sender: 'api', text: `Lowest expense: 🚨 ${response.result}` });
-      } else if (response.intent === 'category_percentage') {
-        addMessage({ sender: 'api', text: `Category percentage: 🚨 ${response.result}` });
-      } else if (response.intent === 'yearly_expense_summary') {
-        addMessage({ sender: 'api', text: `Yearly expense summary: 🚨 ${response.result}` });
-      } else if (response.intent === 'expense_trends') {
-        addMessage({ sender: 'api', text: `Monthly expense summary: 🚨 ${response.result}` });
-      } else if (response.intent === 'predict_future_expenses') {
-        addMessage({ sender: 'api', text: `Future expense prediction: 🚨 ${response.result}` });
-      } else if (response.intent === 'compare_periods_expenses') {
-        addMessage({ sender: 'api', text: `Expense comparison: 🚨 ${response.result}` });
       } else if (response.intent === 'wrong_receipt') {
         addMessage({ sender: 'api', text: `🚨 ${response.result}` });
-      } else if (response.intent === 'multi') {
-        addMessage({ sender: 'api', text: `🚨 ${response.results}` });
       } else if (response.intent === 'greetings') {
         addMessage({ sender: 'api', text: `👋 ${response.result}` });
       } else if (response.intent === 'unknown') {
